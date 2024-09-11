@@ -50,11 +50,4 @@ jobs:
           cache: 'sbt'
 
       - uses: coursier/cache-action@v6
-      
-      - name: Publish artifacts
-        env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USER }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASS }}
-          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
-          PGP_SECRET: ${{ secrets.PGP_SECRET }}
-        run: sbt ci-release
+

@@ -12,6 +12,8 @@ A derivation library for scala 3 with annotation based configuration.
 This library os being published to the macen central. Add library to your project as
 
 ```sbt
+addSbtPlugin("com.evolution" % "sbt-artifactory-plugin" % "0.0.2")
+
 libraryDependencies += "com.evolution" %% "derivation-circe" % "{version}"
 ```
 

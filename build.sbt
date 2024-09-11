@@ -7,6 +7,12 @@ ThisBuild / scalaVersion := Version.scala
 
 ThisBuild / organization := "com.evolution"
 
+ThisBuild / startYear := Some(2022)
+
+ThisBuild / organizationName := "Evolution"
+
+ThisBuild / organizationHomepage := Some(url("https://evolution.com"))
+
 ThisBuild / versionScheme := Some("early-semver")
 
 testFrameworks += new TestFramework("munit.Framework")
@@ -21,9 +27,6 @@ val scala3Settings = scalacOptions ++= Vector(
 val testDependencies = libraryDependencies ++= Vector(
   "org.scalameta" %% "munit" % Version.munit % Test,
 )
-
-ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
-ThisBuild / sonatypeRepository     := "https://s01.oss.sonatype.org/service/local"
 
 lazy val publishSettings = Vector(
   homepage               := Some(url("https://github.com/evolution-gaming/derivation")),
@@ -52,6 +55,8 @@ lazy val publishSettings = Vector(
     ),
   ),
   licenses += ("MIT", url("https://opensource.org/licenses/MIT")),
+  releaseCrossBuild      := true,
+  publishTo              := Some(Resolver.evolutionReleases),
 )
 
 val defaultSettings = testDependencies ++ scala3Settings ++ publishSettings
