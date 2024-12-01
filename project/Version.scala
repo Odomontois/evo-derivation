@@ -10,4 +10,6 @@ object Version {
     val playJson = "2.9.3"
 
     val cats = "2.9.0"
+
+    val logstage = "1.1.0-M23"
 }

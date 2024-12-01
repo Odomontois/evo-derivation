@@ -125,3 +125,16 @@ lazy val playJson = project
       defaultSettings,
     )
     .dependsOn(derivation)
+
+lazy val logstage = project
+    .in(modules / "logstage")
+    .settings(
+      name := "derivation-logstage",
+      libraryDependencies ++= Seq(
+        "io.7mind.izumi" %% "logstage-core"            % Version.logstage,
+        "io.7mind.izumi" %% "logstage-rendering-circe" % Version.logstage % Test,
+        "io.circe"       %% "circe-parser"             % Version.circe    % Test,
+      ),
+      defaultSettings,
+    )
+    .dependsOn(derivation)

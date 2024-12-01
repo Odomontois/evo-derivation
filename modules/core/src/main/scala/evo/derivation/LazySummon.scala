@@ -92,6 +92,16 @@ object LazySummon:
                 }
                 .toVector
 
+        def useForeach[U, Info](fields: Fields, infos: Vector[Info])(
+            f: [A] => (Info, A, TC[A]) => U,
+        ): Unit =
+            fields.toArray
+                .lazyZip(all)
+                .lazyZip(infos)
+                .foreach[U] { (field, inst, info) =>
+                    f(info, field.asInstanceOf[inst.FieldType], inst.tc)
+                }
+
         def useEitherFast[Info, E](infos: IArray[Info])(
             f: (summon: Of[TC], info: Info) => Either[E, summon.FieldType],
         ): Either[E, Fields] =
