@@ -7,7 +7,7 @@ object Version {
 
     val tapir = "1.2.9"
 
-    val playJson = "2.9.3"
+    val playJson = "2.9.4"
 
     val cats = "2.9.0"
 }
