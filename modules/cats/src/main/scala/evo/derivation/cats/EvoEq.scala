@@ -19,9 +19,9 @@ object BaseEvoEq:
             case byCats: cats.kernel.Eq[A] =>
                 new:
                     def eqv(a: A, b: A) = byCats.eqv(a, b)
-            case byScala: Equiv[A]         =>
+            case _                         =>
                 new:
-                    def eqv(a: A, b: A) = byScala.equiv(a, b)
+                    def eqv(a: A, b: A) = Equiv.universal[A].equiv(a, b)
         }
 end BaseEvoEq
 
